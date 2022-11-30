@@ -28,7 +28,7 @@ https://docs.google.com/spreadsheets/d/1j3OXsDOvqxQG2oZFGg-0_3C-fXsFcEn3PUClRYeQ
 https://www.figma.com/file/1wWNan52hGD0ZFJSp8cLmp/%E5%8D%92%E6%A5%AD%E8%AA%B2%E9%A1%8C?node-id=0%3A1&t=fMWZ45yO10SKyndH-1
 
 # ER図
-![](https://i.imgur.com/1xAxrNj.png)
+![](https://i.imgur.com/wbV96wM.png)
 
 # 画面遷移図
 ![](https://i.imgur.com/QHf1NMT.png)
