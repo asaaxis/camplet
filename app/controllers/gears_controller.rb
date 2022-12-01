@@ -1,0 +1,49 @@
+class GearsController < ApplicationController
+  before_action :set_gear, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @gears = current_user.gears
+  end
+
+  def show
+  end
+
+  def new
+    @gear = Gear.new
+  end
+
+  def edit
+  end
+
+  def create
+    @gear = current_user.gears.build(gear_params)
+
+    if @gear.save
+      redirect_to @gear, notice: 'Gear was successfully created.'
+    else
+      render :new
+    end
+  end
+
+  def update
+    if @gear.update(gear_params)
+      redirect_to @gear, notice: 'Gear was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @gear.destroy
+    redirect_to gears_url, notice: 'Gear was successfully destroyed.'
+  end
+
+  private
+    def set_gear
+      @gear = Gear.find(params[:id])
+    end
+
+    def gear_params
+      params.require(:gear).permit(:name, :description, :quantity, :image, :user_id)
+    end
+end

@@ -1,0 +1,30 @@
+<h1>Gear show</h1>
+
+<p>
+  <strong>User:</strong>
+  <%= @gear.user.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @gear.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @gear.description %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @gear.quantity %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @gear.image %>
+</p>
+
+
+<%= link_to 'Edit', edit_gear_path(@gear) %> |
+<%= link_to 'Back', gears_path %>
