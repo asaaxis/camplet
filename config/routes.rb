@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
 
-  resources :gears
+  root 'users#show'
+
+  resources :gears do
+    collection do
+      get 'search'
+    end
+  end
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  root 'users#show'
-
   resources :users, only: [:show]
 
   if Rails.env.development?

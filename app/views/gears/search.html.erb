@@ -1,20 +1,9 @@
-
-<h1>Gears</h1>
-
-<h3>ギア検索</h3>
-<%= search_form_for @q, url: search_gears_path do |f| %>
-  <%= f.label :name_cont, '名前' %>
-  <%= f.search_field :name_cont %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
-
-<br>
+<h1>検索結果</h1>
 
 <table>
   <thead>
     <tr>
-    <th>User</th>
+      <th>User</th>
       <th>Name</th>
       <th>Quantity</th>
       <th>Image</th>
@@ -23,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @gears.each do |gear| %>
+    <% @results.each do |gear| %>
       <tr>
         <td><%= gear.user.name %></td>
         <td><%= gear.name %></td>
@@ -39,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Gear', new_gear_path %>
+<%= link_to 'ギア一覧へ', gears_path %>

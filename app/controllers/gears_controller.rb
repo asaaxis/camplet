@@ -1,5 +1,6 @@
 class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
+  before_action :set_q, only: [:index, :search]
 
   def index
     @gears = current_user.gears
@@ -38,12 +39,21 @@ class GearsController < ApplicationController
     redirect_to gears_url, notice: 'Gear was successfully destroyed.'
   end
 
-  private
-    def set_gear
-      @gear = Gear.find(params[:id])
-    end
+  def search
+    @results = @q.result
+  end
 
-    def gear_params
-      params.require(:gear).permit(:name, :description, :quantity, :image, :user_id)
-    end
+  private
+
+  def set_q
+    @q = current_user.gears.ransack(params[:q])
+  end
+
+  def set_gear
+    @gear = Gear.find(params[:id])
+  end
+
+  def gear_params
+    params.require(:gear).permit(:name, :description, :quantity, :image, :user_id)
+  end
 end
