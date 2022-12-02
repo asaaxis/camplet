@@ -1,0 +1,31 @@
+<h1>検索結果</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |gear| %>
+      <tr>
+        <td><%= gear.user.name %></td>
+        <td><%= gear.name %></td>
+        <td><%= gear.quantity %></td>
+        <td><%= image_tag gear.image.url %></td>
+        <td><%= link_to 'Show', gear %></td>
+        <td><%= link_to 'Edit', edit_gear_path(gear) %></td>
+        <td><%= link_to 'Destroy', gear, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'ギア一覧へ', gears_path %>
