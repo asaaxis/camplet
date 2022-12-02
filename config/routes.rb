@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :teams
   root 'users#show'
 
   resources :gears do

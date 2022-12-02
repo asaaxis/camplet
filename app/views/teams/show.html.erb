@@ -1,0 +1,14 @@
+<h1>チーム詳細画面</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @team.owner_id %>
+</p>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>
