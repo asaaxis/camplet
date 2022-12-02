@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2022_12_01_071625) do
   create_table "gears", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
-    t.integer "quantity", default: 0
-    t.string "image"
+    t.integer "quantity", default: 0, null: false
+    t.text "image"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
