@@ -1,8 +1,8 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: %i[show edit update destroy]
 
   def index
-    @teams = Team.all
+    @teams = current_user.teams.all
   end
 
   def show
@@ -16,10 +16,11 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.new(team_params)
-
+    @team = current_user.teams.build(team_params)
+    @team.owner = current_user
     if @team.save
-      redirect_to @team, notice: 'Team was successfully created.'
+      @team.invite_member(@team.owner)
+      redirect_to @team, notice: 'チームを作成しました.'
     else
       render :new
     end
@@ -27,7 +28,7 @@ class TeamsController < ApplicationController
 
   def update
     if @team.update(team_params)
-      redirect_to @team, notice: 'Team was successfully updated.'
+      redirect_to @team, notice: 'チームを編集しました.'
     else
       render :edit
     end
@@ -35,7 +36,7 @@ class TeamsController < ApplicationController
 
   def destroy
     @team.destroy
-    redirect_to teams_url, notice: 'Team was successfully destroyed.'
+    redirect_to teams_url, notice: 'チームを削除しました.'
   end
 
   private
@@ -44,6 +45,6 @@ class TeamsController < ApplicationController
     end
 
     def team_params
-      params.require(:team).permit(:name, :owner_id)
+      params.require(:team).permit(:name)
     end
 end

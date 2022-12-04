@@ -1,14 +1,31 @@
 <h1>チーム詳細画面</h1>
 
 <p>
-  <strong>Name:</strong>
+  <strong>チーム名:</strong>
   <%= @team.name %>
 </p>
 
 <p>
-  <strong>Owner:</strong>
-  <%= @team.owner_id %>
+  <strong>リーダー:</strong>
+  <%= @team.owner.name %>
 </p>
 
+<h2>メンバー</h2>
+<% @team.members.each do |member| %>
+  <p><%= member.name %></p>
+<% end %>
+
+<h2>招待</h2>
+<%= form_with(model: :assign, scope: :post, url: team_assigns_path(@team), local: true) do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <button type="submit">招待</button>
+<% end %>
+
 <%= link_to 'Edit', edit_team_path(@team) %> |
+<td><%= link_to 'Destroy', @team, method: :delete, data: { confirm: 'Are you sure?' } %></td> |
 <%= link_to 'Back', teams_path %>
+
+<% if @team.members.ids.include?(current_user.id) %>
+  <%= link_to "チームから退出", team_assign_path(@team), method: :delete, data: { confirm: "チームから退出しますか？"} %>
+<% end %>
