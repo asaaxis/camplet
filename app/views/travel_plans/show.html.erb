@@ -19,6 +19,12 @@
   <%= @travel_plan.end_schedule_at %>
 </p>
 
+<p>
+<strong>持ち物リスト:</strong>
+  <% @travel_plan.labels.each do |label| %>
+    <%= label.name %>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_team_travel_plan_path(Team.find(params[:team_id]), @travel_plan) %> |
 <%= link_to 'Back', team_travel_plans_path %>

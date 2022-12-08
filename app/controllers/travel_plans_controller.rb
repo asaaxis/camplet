@@ -50,6 +50,6 @@ class TravelPlansController < ApplicationController
   end
 
   def travel_plan_params
-    params.require(:travel_plan).permit(:name, :start_schedule_at, :end_schedule_at).merge(team_id: params[:team_id])
+    params.require(:travel_plan).permit(:name, :start_schedule_at, :end_schedule_at, { label_ids: [] }).merge(team_id: params[:team_id])
   end
 end
