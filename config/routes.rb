@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'users#show'
   resources :teams do
     resources :assigns, only: %i[ create destroy ]
+    resources :travel_plans
   end
 
   resources :gears do

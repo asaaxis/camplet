@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_02_071035) do
+ActiveRecord::Schema.define(version: 2022_12_08_121814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2022_12_02_071035) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "travel_plans", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "start_schedule_at", null: false
+    t.datetime "end_schedule_at", null: false
+    t.bigint "team_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_travel_plans_on_team_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -64,4 +74,5 @@ ActiveRecord::Schema.define(version: 2022_12_02_071035) do
   add_foreign_key "assigns", "teams"
   add_foreign_key "assigns", "users"
   add_foreign_key "gears", "users"
+  add_foreign_key "travel_plans", "teams"
 end
