@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   has_many :gears
-  has_many :teams, foreign_key: :owner_id
+  has_many :teams, foreign_key: :owner_id, dependent: :destroy
   has_many :assigns, dependent: :destroy
-  has_many :teams, through: :assigns, source: :team
+  has_many :teams, through: :assigns, source: :team, dependent: :destroy
 end
