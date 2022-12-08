@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   root 'users#show'
+  resources :teams do
+    resources :assigns, only: %i[ create destroy ]
+  end
 
   resources :gears do
     collection do
