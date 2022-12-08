@@ -2,5 +2,5 @@
 
 <%= render 'form', travel_plan: @travel_plan %>
 
-<%= link_to 'Show', @travel_plan %> |
-<%= link_to 'Back', travel_plans_path %>
+<%= link_to 'Show', team_travel_plan_path(@team, @travel_plan) %> |
+<%= link_to 'Back', team_travel_plans_path %>

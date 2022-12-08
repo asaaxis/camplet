@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
   <%= @travel_plan.name %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @travel_plan.team.name %>
 </p>
 
 <p>
@@ -15,10 +19,6 @@
   <%= @travel_plan.end_schedule_at %>
 </p>
 
-<p>
-  <strong>Team:</strong>
-  <%= @travel_plan.team_id %>
-</p>
 
-<%= link_to 'Edit', edit_travel_plan_path(@travel_plan) %> |
-<%= link_to 'Back', travel_plans_path %>
+<%= link_to 'Edit', edit_team_travel_plan_path(Team.find(params[:team_id]), @travel_plan) %> |
+<%= link_to 'Back', team_travel_plans_path %>

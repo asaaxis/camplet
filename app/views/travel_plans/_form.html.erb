@@ -1,4 +1,5 @@
-<%= form_with(model: travel_plan) do |form| %>
+<%= form_with(model: [@team, travel_plan]) do |form| %>
+
   <% if travel_plan.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(travel_plan.errors.count, "error") %> prohibited this travel_plan from being saved:</h2>
@@ -26,10 +27,7 @@
     <%= form.datetime_select :end_schedule_at %>
   </div>
 
-  <div class="field">
-    <%= form.label :team_id %>
-    <%= form.text_field :team_id %>
-  </div>
+
 
   <div class="actions">
     <%= form.submit %>

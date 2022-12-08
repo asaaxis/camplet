@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Travel Plans</h1>
 
@@ -19,10 +18,10 @@
         <td><%= travel_plan.name %></td>
         <td><%= travel_plan.start_schedule_at %></td>
         <td><%= travel_plan.end_schedule_at %></td>
-        <td><%= travel_plan.team_id %></td>
-        <td><%= link_to 'Show', travel_plan %></td>
-        <td><%= link_to 'Edit', edit_travel_plan_path(travel_plan) %></td>
-        <td><%= link_to 'Destroy', travel_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= travel_plan.team.name %></td>
+        <td><%= link_to 'Show', team_travel_plan_path(@team, travel_plan)%></td>
+        <td><%= link_to 'Edit', edit_team_travel_plan_path(@team, travel_plan) %></td>
+        <td><%= link_to 'Destroy', team_travel_plan_path(@team, travel_plan), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Travel Plan', new_travel_plan_path %>
+<%= link_to 'New Travel Plan', new_team_travel_plan_path%>
