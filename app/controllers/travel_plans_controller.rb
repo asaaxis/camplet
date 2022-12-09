@@ -1,6 +1,6 @@
 class TravelPlansController < ApplicationController
   before_action :set_travel_plan, only: [:show, :edit, :update, :destroy]
-  before_action :set_team, only: [:index, :new, :edit, :create]
+  before_action :set_team, only: [:index, :show, :new, :edit, :update, :create]
 
   def index
     @travel_plans = Team.find(params[:team_id]).travel_plans
@@ -28,7 +28,7 @@ class TravelPlansController < ApplicationController
 
   def update
     if @travel_plan.update(travel_plan_params)
-      redirect_to team_travel_plans_path, notice: 'Travel plan was successfully updated.'
+      redirect_to team_travel_plan_path(@team, @travel_plan), notice: 'Travel plan was successfully updated.'
     else
       render :edit
     end
