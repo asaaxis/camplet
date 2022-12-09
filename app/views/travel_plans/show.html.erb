@@ -27,14 +27,10 @@
 </p>
 
 <p>
-  <strong>ユーザーが持ってる、持ち物リスト:</strong>
-  <% gears = [] %>
-  <% @team.members.each do |member| %>
-    <% member.gears.each do |gear| %>
-      <%= gear.name %>
-      <% gears << gear %>
-    <% end %>
-  <% end %>
+  <strong>ユーザーが持って行く、持ち物リスト:</strong>
+  <td><% @travel_plan.gears.each do |gear| %>
+    <%= gear.name %>
+  <% end %></td>
 </p>
 
 <h3>持ち物を登録する</h3>
@@ -58,8 +54,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :メンバーが持ってる、持ち物リスト %>
-    <%= form.collection_check_boxes(:member_ids, gears, :id, :name) %>
+    <%= form.label :ユーザーが持ってる、持ち物リスト %>
+    <%= form.collection_check_boxes(:gear_ids, Gear.where(user_id: current_user.id), :id, :name) %>
   </div>
 
   <div class="actions">
