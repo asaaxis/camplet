@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#show'
+  root 'top#index'
 
   resources :labels
   resources :teams do
