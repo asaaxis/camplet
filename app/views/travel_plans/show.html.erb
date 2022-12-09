@@ -19,6 +19,50 @@
   <%= @travel_plan.end_schedule_at %>
 </p>
 
+<p>
+  <strong>持ち物リスト:</strong>
+  <% @travel_plan.labels.each do |label| %>
+    <%= label.name %>
+  <% end %>
+</p>
 
-<%= link_to 'Edit', edit_team_travel_plan_path(Team.find(params[:team_id]), @travel_plan) %> |
+<p>
+  <strong>ユーザーが持って行く、持ち物リスト:</strong>
+  <td><% @travel_plan.gears.each do |gear| %>
+    <%= gear.name %>
+  <% end %></td>
+</p>
+
+<h3>持ち物を登録する</h3>
+<%= form_with(model: [@team, @travel_plan]) do |form| %>
+
+  <% if @travel_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(travel_plan.errors.count, "error") %> prohibited this travel_plan from being saved:</h2>
+
+      <ul>
+        <% travel_plan.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :持ち物 %>
+    <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ユーザーが持ってる、持ち物リスト %>
+    <%= form.collection_check_boxes(:gear_ids, Gear.where(user_id: current_user.id), :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Destroy', team_travel_plan_path(@team, @travel_plan), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_team_travel_plan_path(@team, @travel_plan) %> |
 <%= link_to 'Back', team_travel_plans_path %>

@@ -1,5 +1,7 @@
 class Gear < ApplicationRecord
   belongs_to :user
+  has_many :belongings, dependent: :destroy
+  has_many :travel_plans, through: :belongings
 
   mount_uploader :image, ImageUploader
 

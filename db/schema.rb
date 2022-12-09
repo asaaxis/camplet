@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_08_121814) do
+ActiveRecord::Schema.define(version: 2022_12_09_041933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2022_12_08_121814) do
     t.index ["user_id"], name: "index_assigns_on_user_id"
   end
 
+  create_table "belongings", force: :cascade do |t|
+    t.bigint "travel_plan_id", null: false
+    t.bigint "gear_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gear_id"], name: "index_belongings_on_gear_id"
+    t.index ["travel_plan_id"], name: "index_belongings_on_travel_plan_id"
+  end
+
   create_table "gears", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
@@ -33,6 +42,21 @@ ActiveRecord::Schema.define(version: 2022_12_08_121814) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_gears_on_user_id"
+  end
+
+  create_table "labellings", force: :cascade do |t|
+    t.bigint "travel_plan_id", null: false
+    t.bigint "label_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["label_id"], name: "index_labellings_on_label_id"
+    t.index ["travel_plan_id"], name: "index_labellings_on_travel_plan_id"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "teams", force: :cascade do |t|
@@ -73,6 +97,10 @@ ActiveRecord::Schema.define(version: 2022_12_08_121814) do
 
   add_foreign_key "assigns", "teams"
   add_foreign_key "assigns", "users"
+  add_foreign_key "belongings", "gears"
+  add_foreign_key "belongings", "travel_plans"
   add_foreign_key "gears", "users"
+  add_foreign_key "labellings", "labels"
+  add_foreign_key "labellings", "travel_plans"
   add_foreign_key "travel_plans", "teams"
 end

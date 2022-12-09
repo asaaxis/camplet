@@ -20,8 +20,6 @@
         <td><%= travel_plan.end_schedule_at %></td>
         <td><%= travel_plan.team.name %></td>
         <td><%= link_to 'Show', team_travel_plan_path(@team, travel_plan)%></td>
-        <td><%= link_to 'Edit', edit_team_travel_plan_path(@team, travel_plan) %></td>
-        <td><%= link_to 'Destroy', team_travel_plan_path(@team, travel_plan), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
