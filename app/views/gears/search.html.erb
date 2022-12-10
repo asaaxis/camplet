@@ -1,5 +1,7 @@
 <h1>検索結果</h1>
 
+<%= link_to 'ギア一覧へ', gears_path %>
+
 <table>
   <thead>
     <tr>
@@ -17,15 +19,9 @@
         <td><%= gear.user.name %></td>
         <td><%= gear.name %></td>
         <td><%= gear.quantity %></td>
-        <td><%= image_tag gear.image.url %></td>
-        <td><%= link_to 'Show', gear %></td>
-        <td><%= link_to 'Edit', edit_gear_path(gear) %></td>
-        <td><%= link_to 'Destroy', gear, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= image_tag gear.image.url if gear.image.present? %></td>
+        <td><%= link_to '詳細', gear %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'ギア一覧へ', gears_path %>
