@@ -22,9 +22,10 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @gear.image.url %>
+  <%= image_tag @gear.image.url if @gear.image.present? %>
 </p>
 
 
-<%= link_to 'Edit', edit_gear_path(@gear) %> |
-<%= link_to 'Back', gears_path %>
+<%= link_to '編集', edit_gear_path(@gear) %> |
+<%= link_to '削除', @gear, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'キャンプギア一覧', gears_path %>
