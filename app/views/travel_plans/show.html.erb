@@ -56,6 +56,16 @@
 
 <br>
 
-<%= link_to '削除', team_travel_plan_path(@team, @travel_plan), method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to '編集', edit_team_travel_plan_path(@team, @travel_plan) %> |
-<%= link_to '旅行一覧', team_travel_plans_path %>
+<%= link_to '削除', travel_plan_path(@travel_plan), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to '編集', edit_travel_plan_path(id:@travel_plan.id, team_id:@travel_plan.team_id) %> |
+<%= link_to '旅行一覧', team_travel_plans_path(@travel_plan.team_id) %>
+
+<p>コメント一覧</p>
+
+  <div id="chats_area">
+    <%= render partial: 'chats/index', locals: { travel_plan: @travel_plan, chats: @chats } %>
+  </div>
+
+  <%= render partial: 'chats/form', locals: { travel_plan: @travel_plan, chat: @chat } %>
+<br>
+

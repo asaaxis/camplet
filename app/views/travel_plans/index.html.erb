@@ -19,7 +19,7 @@
         <td><%= travel_plan.name %></td>
         <td><%= travel_plan.start_schedule_at %></td>
         <td><%= travel_plan.end_schedule_at %></td>
-        <td><%= link_to '詳細', team_travel_plan_path(@team, travel_plan)%></td>
+        <td><%= link_to '詳細', travel_plan_path(travel_plan)%></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to '新規旅行プラン', new_team_travel_plan_path%>
+<%= link_to '新規旅行プラン', new_team_travel_plan_path(params[:team_id])%>

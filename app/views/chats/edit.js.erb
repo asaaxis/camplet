@@ -1,0 +1,2 @@
+$("#this_chat_<%= @chat.id %>").replaceWith("<%= j render 'chats/edit', travel_plan: @travel_plan, chat: @chat %>");
+$("#notice").html("<%= j flash[:notice] %>");

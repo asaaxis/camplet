@@ -6,4 +6,5 @@ class TravelPlan < ApplicationRecord
   has_many :labels, through: :labellings
   has_many :belongings, dependent: :destroy
   has_many :gears, through: :belongings
+  has_many :chats, dependent: :destroy
 end
