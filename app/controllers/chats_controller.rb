@@ -8,9 +8,9 @@ class ChatsController < ApplicationController
     respond_to do |format|
       if @chat.save
         # byebug
-        format.html { redirect_to team_travel_plan_chats_path, notice: '投稿できました！' }
+        format.html { redirect_to travel_plan_path(@travel_plan), notice: '投稿できました！' }
       else
-        format.html { redirect_to team_travel_plan_chats_path, notice: '投稿できませんでした...' }
+        format.html { redirect_to travel_plan_path(@travel_plan), notice: '投稿できませんでした...' }
       end
     end
   end

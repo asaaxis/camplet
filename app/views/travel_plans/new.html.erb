@@ -2,4 +2,4 @@
 
 <%= render 'form', travel_plan: @travel_plan %>
 
-<%= link_to '旅行一覧', team_travel_plans_path %>
+<%= link_to '旅行一覧', team_travel_plans_path(params[:team_id]) %>
