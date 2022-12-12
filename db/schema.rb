@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_09_041933) do
+ActiveRecord::Schema.define(version: 2022_12_11_123329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2022_12_09_041933) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["gear_id"], name: "index_belongings_on_gear_id"
     t.index ["travel_plan_id"], name: "index_belongings_on_travel_plan_id"
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "travel_plan_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["travel_plan_id"], name: "index_chats_on_travel_plan_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
   create_table "gears", force: :cascade do |t|
@@ -99,6 +109,8 @@ ActiveRecord::Schema.define(version: 2022_12_09_041933) do
   add_foreign_key "assigns", "users"
   add_foreign_key "belongings", "gears"
   add_foreign_key "belongings", "travel_plans"
+  add_foreign_key "chats", "travel_plans"
+  add_foreign_key "chats", "users"
   add_foreign_key "gears", "users"
   add_foreign_key "labellings", "labels"
   add_foreign_key "labellings", "travel_plans"

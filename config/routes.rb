@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :labels
   resources :teams do
     resources :assigns, only: %i[ create destroy ]
-    resources :travel_plans
+    resources :travel_plans do
+      resources :chats, shallow: true 
+    end
   end
 
   resources :gears do

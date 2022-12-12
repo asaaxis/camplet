@@ -7,6 +7,8 @@ class TravelPlansController < ApplicationController
   end
 
   def show
+    @chats = @travel_plan.chats
+    @chat = @travel_plan.chats.build
   end
 
   def new
@@ -50,6 +52,6 @@ class TravelPlansController < ApplicationController
   end
 
   def travel_plan_params
-    params.require(:travel_plan).permit(:name, :start_schedule_at, :end_schedule_at, { label_ids: [] }, { gear_ids: [] }).merge(team_id: params[:team_id])
+    params.require(:travel_plan).permit(:name, :start_schedule_at, :end_schedule_at, :team_id, { label_ids: [] }, { gear_ids: [] }).merge(team_id: params[:team_id])
   end
 end

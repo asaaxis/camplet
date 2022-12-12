@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :teams, foreign_key: :owner_id, dependent: :destroy
   has_many :assigns, dependent: :destroy
   has_many :teams, through: :assigns, source: :team, dependent: :destroy
+  has_many :chats, dependent: :destroy
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|

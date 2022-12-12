@@ -1,0 +1,9 @@
+<ul>
+  <% chats.each do |chat| %>
+    <% if chat.id.present? %>
+      <li>
+        <p><%= chat.content %></p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
