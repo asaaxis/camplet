@@ -5,3 +5,35 @@ ja:
       gear: ギア
       travel_plan: 旅行プラン
       comment: コメント
+      chat: チャット
+      team: チーム
+      assign: アサイン
+      label: ラベル
+      belonging: ギア管理
+    attributes:
+      user:
+        name: 名前
+        admin: 管理者
+      gear:
+        name: 名前
+        description: 詳細
+        quantity: 数量
+        image: 画像
+      travel_plan:
+        name: 行き先
+        start_schedule_at: 宿泊開始日
+        end_schedule_at: 宿泊終了日
+      chat:
+        user_id: ユーザーid
+        content: チャット
+      team:
+        name: チーム名
+        owner_id: チームリーダーのid
+      assign:
+        user_id: ユーザーid
+        team_id: チームid
+      label:
+        name: ラベル名
+      belonging:
+        travel_plan_id: 旅行プランid
+        gear_id: ギアid
