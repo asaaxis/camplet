@@ -2,8 +2,7 @@
 
   <% if travel_plan.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(travel_plan.errors.count, "error") %> prohibited this travel_plan from being saved:</h2>
-
+      <h2><%= pluralize(travel_plan.errors.count, "件のエラー") %> のため旅行プランは登録出来ませんでした:</h2>
       <ul>
         <% travel_plan.errors.each do |error| %>
           <li><%= error.full_message %></li>

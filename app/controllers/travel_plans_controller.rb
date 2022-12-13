@@ -24,7 +24,7 @@ class TravelPlansController < ApplicationController
     if @travel_plan.save
       redirect_to team_travel_plans_path, notice: '旅行プランを作成しました.'
     else
-      render :new
+      redirect_to new_team_travel_plan_path, notice: '旅行プランを作成できませんでした.'
     end
   end
 
