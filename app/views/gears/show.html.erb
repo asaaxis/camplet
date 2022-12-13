@@ -1,31 +1,31 @@
-<h1>Gear show</h1>
+<h1>キャンプギア詳細</h1>
 
 <p>
-  <strong>User:</strong>
+  <strong>ユーザー:</strong>
   <%= @gear.user.name %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>名前:</strong>
   <%= @gear.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>詳細:</strong>
   <%= @gear.description %>
 </p>
 
 <p>
-  <strong>Quantity:</strong>
+  <strong>数量:</strong>
   <%= @gear.quantity %>
 </p>
 
 <p>
-  <strong>Image:</strong>
+  <strong>画像:</strong>
   <%= image_tag @gear.image.url if @gear.image.present? %>
 </p>
 
 
 <%= link_to '編集', edit_gear_path(@gear) %> |
-<%= link_to '削除', @gear, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to '削除', @gear, method: :delete, data: { confirm: '本当に削除しますか?' } %>
 <%= link_to 'キャンプギア一覧', gears_path %>

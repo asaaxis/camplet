@@ -1,21 +1,21 @@
 <p>
-  <strong>Team:</strong>
+  <strong>チーム名:</strong>
   <%= @travel_plan.team.name %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>行き先:</strong>
   <%= @travel_plan.name %>
 </p>
 
 
 <p>
-  <strong>Start schedule at:</strong>
+  <strong>宿泊開始日:</strong>
   <%= @travel_plan.start_schedule_at %>
 </p>
 
 <p>
-  <strong>End schedule at:</strong>
+  <strong>宿泊終了日:</strong>
   <%= @travel_plan.end_schedule_at %>
 </p>
 
@@ -44,6 +44,8 @@
     <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
   </div>
 
+  <br>
+
   <div class="field">
     <%= form.label :ユーザーのキャンプギア %>
     <%= form.collection_check_boxes(:gear_ids, Gear.where(user_id: current_user.id), :id, :name) %>
@@ -60,7 +62,7 @@
 <%= link_to '編集', edit_travel_plan_path(id:@travel_plan.id, team_id:@travel_plan.team_id) %> |
 <%= link_to '旅行一覧', team_travel_plans_path(@travel_plan.team_id) %>
 
-<p>コメント一覧</p>
+<p>チャット一覧</p>
 
   <div id="chats_area">
     <%= render partial: 'chats/index', locals: { travel_plan: @travel_plan, chats: @chats } %>

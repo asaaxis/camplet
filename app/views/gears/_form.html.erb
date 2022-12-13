@@ -1,7 +1,7 @@
 <%= form_with(model: gear) do |form| %>
   <% if gear.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(gear.errors.count, "error") %> prohibited this gear from being saved:</h2>
+      <h2><%= pluralize(gear.errors.count, "件のエラー") %> のためキャンプギアは登録出来ませんでした:</h2>
 
       <ul>
         <% gear.errors.each do |error| %>
@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: "例)テント" %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, placeholder: "例)テントの詳細" %>
   </div>
 
   <div class="field">

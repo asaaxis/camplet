@@ -22,15 +22,15 @@ class TravelPlansController < ApplicationController
     # binding.pry
     @travel_plan = TravelPlan.new(travel_plan_params)
     if @travel_plan.save
-      redirect_to team_travel_plans_path, notice: 'Travel plan was successfully created.'
+      redirect_to team_travel_plans_path, notice: '旅行プランを作成しました.'
     else
-      render :new
+      redirect_to new_team_travel_plan_path, notice: '旅行プランを作成できませんでした.'
     end
   end
 
   def update
     if @travel_plan.update(travel_plan_params)
-      redirect_to travel_plan_path(@travel_plan), notice: 'Travel plan was successfully updated.'
+      redirect_to travel_plan_path(@travel_plan), notice: '旅行プランを編集しました.'
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class TravelPlansController < ApplicationController
 
   def destroy
     @travel_plan.destroy
-    redirect_to team_travel_plans_path(@travel_plan.team_id), notice: 'Travel plan was successfully destroyed.'
+    redirect_to team_travel_plans_path(@travel_plan.team_id), notice: '旅行プランを削除しました.'
   end
 
   private

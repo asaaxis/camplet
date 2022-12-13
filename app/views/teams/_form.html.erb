@@ -1,7 +1,7 @@
 <%= form_with(model: team) do |form| %>
   <% if team.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
+      <h2><%= pluralize(team.errors.count, "件のエラー") %> のためチームは登録出来ませんでした:</h2>
 
       <ul>
         <% team.errors.each do |error| %>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :チーム名 %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: "例)BasicTeam" %>
   </div>
 
   <div class="actions">
