@@ -7,7 +7,7 @@ class AssignsController < ApplicationController
       team.invite_member(user)
       redirect_to team_url(team), notice: "招待に成功しました."
     else
-      redirect_to edit_team_path(team), notice: "招待に失敗しました."
+      redirect_to team_path(team), notice: "招待に失敗しました."
     end
   end
 
