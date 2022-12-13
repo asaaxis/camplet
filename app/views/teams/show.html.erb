@@ -26,8 +26,8 @@
     <%= f.email_field :email %>
     <button type="submit">招待</button>
   <% end %>
-  <%= link_to '編集', edit_team_path(@team) %> |
-  <%= link_to 'チーム削除', @team, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'チーム名編集', edit_team_path(@team) %> |
+  <%= link_to 'チーム削除', @team, method: :delete, data: { confirm: '本当に削除しますか?' } %> |
 <% else @team.members.ids.include?(current_user.id)%>
   <%= link_to "チームから退出", team_assign_path(@team), method: :delete, data: { confirm: "チームから退出しますか？"} %> |
 <% end %>

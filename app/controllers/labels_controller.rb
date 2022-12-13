@@ -19,7 +19,7 @@ class LabelsController < ApplicationController
     @label = Label.new(label_params)
 
     if @label.save
-      redirect_to @label, notice: 'Label was successfully created.'
+      redirect_to @label, notice: 'ラベルを作成しました.'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class LabelsController < ApplicationController
 
   def update
     if @label.update(label_params)
-      redirect_to @label, notice: 'Label was successfully updated.'
+      redirect_to @label, notice: 'ラベルを編集しました.'
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class LabelsController < ApplicationController
 
   def destroy
     @label.destroy
-    redirect_to labels_url, notice: 'Label was successfully destroyed.'
+    redirect_to labels_url, notice: 'ラベルを削除しました.'
   end
 
   private

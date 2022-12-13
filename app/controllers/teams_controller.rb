@@ -28,7 +28,7 @@ class TeamsController < ApplicationController
 
   def update
     if @team.update(team_params)
-      redirect_to @team, notice: 'チームを編集しました.'
+      redirect_to @team, notice: 'チーム名を編集しました.'
     else
       render :edit
     end

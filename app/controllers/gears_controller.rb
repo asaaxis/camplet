@@ -20,7 +20,7 @@ class GearsController < ApplicationController
     @gear = current_user.gears.build(gear_params)
 
     if @gear.save
-      redirect_to @gear, notice: 'Gear was successfully created.'
+      redirect_to @gear, notice: 'ギアを登録しました.'
     else
       render :new
     end
@@ -28,7 +28,7 @@ class GearsController < ApplicationController
 
   def update
     if @gear.update(gear_params)
-      redirect_to @gear, notice: 'Gear was successfully updated.'
+      redirect_to @gear, notice: 'ギアを編集しました.'
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class GearsController < ApplicationController
 
   def destroy
     @gear.destroy
-    redirect_to gears_url, notice: 'Gear was successfully destroyed.'
+    redirect_to gears_url, notice: 'ギアを削除しました.'
   end
 
   def search
