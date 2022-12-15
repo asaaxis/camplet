@@ -1,5 +1,11 @@
-<h1>新規旅行プラン</h1>
+<div class="texts-wrapper">
+  <div class="contents-title text-center">
+    <h1  class = "mt-5 mb-5">新規旅行プラン</h1>
 
-<%= render 'form', travel_plan: @travel_plan %>
-
-<%= link_to '旅行一覧', team_travel_plans_path(params[:team_id]) %>
+    <%= render 'form', travel_plan: @travel_plan %>
+    </br>
+    <button type="button" class="btn btn-outline-info" style="background-color: #e3f2fd;">
+      <%= link_to '旅行一覧', team_travel_plans_path(params[:team_id]) %>
+    </button>
+  </div>
+</div>
