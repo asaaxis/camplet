@@ -1,5 +1,12 @@
-<h1>キャンプギア登録</h1>
+<div class="texts-wrapper">
+  <div class="contents-title text-center">
+    <h1 class = "mt-5 mb-5">キャンプギア登録</h1>
 
-<%= render 'form', gear: @gear %>
+    <%= render 'form', gear: @gear %>
 
-<%= link_to 'キャンプギア一覧', gears_path %>
+    <br>
+    <button type="button" class="btn btn-outline-info" style="background-color: #e3f2fd;">
+      <%= link_to 'キャンプギア一覧', gears_path %>
+    </button>
+  </div>
+</div>

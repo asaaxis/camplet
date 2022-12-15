@@ -1,30 +1,38 @@
+<div class="texts-wrapper">
+  <div class="contents-title text-center">
+    <h1 class = "mt-5 mb-5">旅行プラン一覧</h1>
 
-<h1>旅行プラン一覧</h1>
+    <table class = "table table-striped" style="background-color: #e3e9fd">
+      <thead>
+        <tr>
+          <th>チーム名</th>
+          <th>行き先</th>
+          <th>宿泊開始日</th>
+          <th>宿泊終了日</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>チーム名</th>
-      <th>行き先</th>
-      <th>宿泊開始日</th>
-      <th>宿泊終了日</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <tbody>
+        <% @travel_plans.each do |travel_plan| %>
+          <tr>
+            <td><%= travel_plan.team.name %></td>
+            <td><%= travel_plan.name %></td>
+            <td><%= travel_plan.start_schedule_at %></td>
+            <td><%= travel_plan.end_schedule_at %></td>
+            <td>
+              <button type="button" class="btn btn-outline-info" style="background-color: #e3f2fd;">
+                <%= link_to '詳細', travel_plan_path(travel_plan)%>
+              </button>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <tbody>
-    <% @travel_plans.each do |travel_plan| %>
-      <tr>
-        <td><%= travel_plan.team.name %></td>
-        <td><%= travel_plan.name %></td>
-        <td><%= travel_plan.start_schedule_at %></td>
-        <td><%= travel_plan.end_schedule_at %></td>
-        <td><%= link_to '詳細', travel_plan_path(travel_plan)%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to '新規旅行プラン', new_team_travel_plan_path(params[:team_id])%>
+    <br>
+    <button type="button" class="btn btn-outline-info" style="background-color: #e3f2fd;">
+      <%= link_to '新規旅行プラン', new_team_travel_plan_path(params[:team_id])%>
+    </button>
+  </div>
+</div>

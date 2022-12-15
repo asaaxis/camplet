@@ -1,5 +1,12 @@
-<h1>キャンプギア詳細</h1>
+<div class="texts-wrapper">
+  <div class="contents-title text-center">
+    <h1 class = "mt-5 mb-5">キャンプギア詳細</h1>
 
-<%= render 'form', gear: @gear %>
+    <%= render 'form', gear: @gear %>
 
-<%= link_to '詳細', @gear %> 
+    <br>
+    <button type="button" class="btn btn-outline-info" style="background-color: #e3f2fd;">
+      <%= link_to '詳細', @gear %> 
+    </button>
+  </div>
+</div>

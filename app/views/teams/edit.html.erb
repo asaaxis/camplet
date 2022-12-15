@@ -1,5 +1,11 @@
-<h1>チーム名編集</h1>
+<div class="texts-wrapper">
+  <div class="contents-title text-center">
+    <h1 class = "mt-5 mb-5">チーム名編集</h1>
 
-<%= render 'form', team: @team %>
-
-<%= link_to '詳細', @team %> 
+    <%= render 'form', team: @team %>
+    <br>
+    <button type="button" class="btn btn-outline-info" style="background-color: #e3f2fd;">
+      <%= link_to '詳細', @team %> 
+    </button>
+  </div>
+</div>

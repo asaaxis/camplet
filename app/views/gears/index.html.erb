@@ -1,37 +1,35 @@
+<div class="texts-wrapper">
+  <div class="contents-title text-center">
+    <h1 class = "mt-5 mb-5">キャンプギア一覧</h1>
 
-<h1>キャンプギア一覧</h1>
-
-<h3>ギア検索</h3>
-<%= search_form_for @q, url: search_gears_path do |f| %>
-  <%= f.label :name_cont, '名前' %>
-  <%= f.search_field :name_cont %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
-
-<br>
-
-<table>
-  <thead>
-    <tr>
-      <th>ユーザー</th>
-      <th>名前</th>
-      <th>数量</th>
-      <th>画像</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @gears.each do |gear| %>
-      <tr>
-        <td><%= gear.user.name %></td>
-        <td><%= gear.name %></td>
-        <td><%= gear.quantity %></td>
-        <td><%= image_tag gear.image.url if gear.image.present? %></td>
-        <td><%= link_to '詳細', gear %></td>
-      </tr>
+    <h3>ギア検索</h3>
+    <%= search_form_for @q, url: search_gears_path do |f| %>
+      <%= f.label :name_cont, '名前' %>
+      <%= f.search_field :name_cont, placeholder: "テント" %>
+      <%= f.submit '検索' %>
     <% end %>
-  </tbody>
-</table>
+    <br>
 
+    <table>
+      <tbody>
+        <div class="row">
+          <% @gears.each do |gear| %>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card" style="width: 20rem; background-color: #e3e9fd">
+                <img src="<%= gear.image.url if gear.image.present? %>" alt="カードの画像" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">名前:<%= gear.name %></h5>
+                  <p class="card-text">ユーザー:<%= gear.user.name %></p>
+                  <p class="card-text">数量:<%= gear.quantity %></p>
+                  <button type="button" class="btn btn-outline-info" style="background-color: #e3f2fd;">
+                    <%= link_to '詳細', gear %>
+                  </button>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -6,33 +6,54 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <%= link_to "マイページ", user_path(current_user.id) %>
-      <%= link_to "キャンプギア登録", new_gear_path %>
-      <%= link_to 'チーム作成', new_team_path %>
-      <% if current_user.admin? %>
-        <%= link_to "管理者画面", rails_admin_path %>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ナビゲーションメニュー -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+      <a class="navbar-brand text-dark" href="/">Camplet</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ">
+          <% if user_signed_in? %>
+            <a class="nav-link text-dark" ><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+            <a class="nav-link text-dark" ><%= link_to "マイページ", user_path(current_user.id) %></a>
+            <a class="nav-link text-dark" ><%= link_to "キャンプギア登録", new_gear_path %></a>
+            <a class="nav-link text-dark" ><%= link_to 'チーム作成', new_team_path %></a>
+            <% if current_user.admin? %>
+              <a class="nav-link text-dark" ><%= link_to "管理者画面", rails_admin_path %></a>
+            <% end %>
+          <% else %>
+            <a class="nav-link text-dark" ><%= link_to "新規登録", new_user_registration_path %></a>
+            <a class="nav-link text-dark" ><%= link_to "ログイン", new_user_session_path %></a>
+            <a class="nav-link text-dark" ><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %></a>
+            <a class="nav-link text-dark" ><%= link_to 'ゲスト管理者ログイン', users_guest_admin_sign_in_path, method: :post %></a>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+    <div class = "container">
+      <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
       <% end %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-      <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
-      <%= link_to 'ゲスト管理者ログイン', users_guest_admin_sign_in_path, method: :post %>
-    <% end %>
-
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
-
-    <%= yield %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
+    
+      <%= yield %>
+    </div>
+    
+    <nav class="navbar absolute-bottom navbar-light" style="background-color: #e3f2fd;">
+      <a class="navbar-brand" href="/">Camplet</a>
+    </nav>
   </body>
 </html>

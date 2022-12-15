@@ -1,35 +1,47 @@
-<h1>チーム詳細画面</h1>
+<div class="texts-wrapper">
+  <div class="contents-title text-center">
+    <h1 class = "mt-5 mb-5">チーム詳細画面</h1>
 
-<p>
-  <strong>チーム名:</strong>
-  <%= @team.name %>
-</p>
+    <p>
+      <strong>チーム名:</strong>
+      <%= @team.name %>
+    </p>
 
-<p>
-  <strong>リーダー:</strong>
-  <%= @team.owner.name %>
-</p>
+    <p>
+      <strong>リーダー:</strong>
+      <%= @team.owner.name %>
+    </p>
 
-<h2>メンバー</h2>
-<% @team.members.each do |member| %>
-  <p><%= member.name %></p>
-<% end %>
+    <h3>メンバー</h3>
+    <% @team.members.each do |member| %>
+      <p><%= member.name %></p>
+    <% end %>
 
-<p><h2><%= link_to '旅行一覧', team_travel_plans_path(@team) %></h2></p>
+    <p><h2><%= link_to '旅行一覧', team_travel_plans_path(@team) %></h2></p>
 
-<br>
+    <br>
 
-<% if @team.owner == current_user%>
-  <h2>メンバー招待</h2>
-  <%= form_with(model: :assign, scope: :post, url: team_assigns_path(@team), local: true) do |f| %>
-    <%= f.label :email %>
-    <%= f.email_field :email, placeholder: "例)sample@example.com" %>
-    <button type="submit">招待</button>
-  <% end %>
-  <%= link_to 'チーム名編集', edit_team_path(@team) %> |
-  <%= link_to 'チーム削除', @team, method: :delete, data: { confirm: '本当に削除しますか?' } %> |
-<% else @team.members.ids.include?(current_user.id)%>
-  <%= link_to "チームから退出", team_assign_path(@team), method: :delete, data: { confirm: "チームから退出しますか？"} %> |
-<% end %>
-
-<%= link_to '所属チーム一覧', teams_path %> 
+    <% if @team.owner == current_user%>
+      <h2>メンバー招待</h2>
+      <%= form_with(model: :assign, scope: :post, url: team_assigns_path(@team), local: true) do |f| %>
+        <%= f.label :email %>
+        <%= f.email_field :email, placeholder: "例)sample@example.com" %>
+        <button type="submit">招待</button>
+      <% end %>
+      <br>
+      <button type="button" class="btn btn-outline-success" style="background-color: #e3f2fd;">
+        <%= link_to 'チーム名編集', edit_team_path(@team) %>
+      </button>
+      <button type="button" class="btn btn-outline-danger" style="background-color: #e3f2fd;">
+        <%= link_to 'チーム削除', @team, method: :delete, data: { confirm: '本当に削除しますか?' } %>
+      </button>
+    <% else @team.members.ids.include?(current_user.id)%>
+      <button type="button" class="btn btn-outline-danger" style="background-color: #e3f2fd;">
+        <%= link_to "チームから退出", team_assign_path(@team), method: :delete, data: { confirm: "チームから退出しますか？"} %>
+      </button>
+    <% end %>
+    <button type="button" class="btn btn-outline-info" style="background-color: #e3f2fd;">
+      <%= link_to '所属チーム一覧', teams_path %>
+    </button>
+  </div>
+</div>
