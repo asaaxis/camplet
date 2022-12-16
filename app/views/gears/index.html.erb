@@ -16,7 +16,9 @@
           <% @gears.each do |gear| %>
             <div class="col-12 col-md-6 col-lg-4">
               <div class="card" style="width: 20rem; background-color: #e3e9fd">
-                <img src="<%= gear.image.url if gear.image.present? %>" alt="カードの画像" class="card-img-top">
+                <% if gear.image.present? %>
+                  <%= image_tag gear.image.url, class: "card-img-top" %>
+                <% end %>
                 <div class="card-body">
                   <h5 class="card-title">名前:<%= gear.name %></h5>
                   <p class="card-text">ユーザー:<%= gear.user.name %></p>
