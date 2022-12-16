@@ -1,17 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-
-.container {
-  position: relative;
-  box-sizing: border-box;
-  min-height: 100vh;
-}
-footer {
-  position: absolute;
-  bottom: 0;
-}
-
+// フッターの設定
+// .container {
+//   position: relative;
+//   box-sizing: border-box;
+//   min-height: 100vh;
+// }
+// footer {
+//   position: absolute;
+//   bottom: 0;
+// }
 // 文字のフォント調整
 p {
   font-family: 'Kaisei Decol', serif;
@@ -32,4 +31,52 @@ h6 {
 .card-body p {
   text-align: left;
 }
+// トップページの背景画像
+// .top_background {
+//   background-image: image-url("top.png");
+//   background-size: cover;
+//   height: 800px;
+// }
+// .top-body {
+//   background-image: url("top.JPG");
+//   background-size: 100% 100%;
+//   background-color:rgba(255,255,255,0.8);
+//   background-blend-mode: lighten;
+// }
 
+// .top_background {
+//   background-image: url("/top.jpeg");
+//   background-size: 100% 100%;
+//   background-color:rgba(255,255,255,0.8);
+//   background-blend-mode: lighten;
+// }
+
+// .content_area {
+//   width:60%;
+//   height: relative;
+//   background-color:rgba(10, 10, 10, 0.8);
+//   padding: 30px;
+// }
+
+// .index_title1 {
+// font-size: 50px;
+// font-weight: bold;
+// line-height: 1.5;
+// }
+
+// .index_title2 {
+// font-size: 30px;
+// font-weight: bold;
+// line-height: 1.5;
+// }
+
+// .index_title3 {
+//   font-size: 20px;
+//   font-weight: bold;
+//   line-height: 0.5;
+//   }
+
+// .index_text {
+// font-size: 20px;
+// line-height: 1.5;
+// }
