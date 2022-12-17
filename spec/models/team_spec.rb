@@ -1,5 +1,6 @@
 require 'rails_helper'
-describe 'チームモデル機能', type: :model do
+
+RSpec.describe 'チームモデル機能', type: :model do
   describe 'バリデーションのテスト' do
     context 'チーム名を入力した場合' do
       it 'バリデーションが通る' do
