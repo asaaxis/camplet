@@ -31,4 +31,4 @@ https://www.figma.com/file/1wWNan52hGD0ZFJSp8cLmp/%E5%8D%92%E6%A5%AD%E8%AA%B2%E9
 ![](https://i.imgur.com/C4oVqNB.png)
 
 # 画面遷移図
-![](https://i.imgur.com/QHf1NMT.png)
+![](https://i.imgur.com/kIxaLwl.png)
