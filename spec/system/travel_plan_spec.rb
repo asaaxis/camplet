@@ -62,4 +62,4 @@ RSpec.describe '旅行プラン管理機能', type: :system do
     end
   end
 end
-# bundle exec rspec spec/system/travel_plan.rb
+# bundle exec rspec spec/system/travel_plan_spec.rb
