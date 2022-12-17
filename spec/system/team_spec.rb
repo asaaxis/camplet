@@ -32,7 +32,6 @@ RSpec.describe 'チーム管理機能', type: :system do
         visit team_path(team)
         click_button "チーム削除"
         page.driver.browser.switch_to.alert.accept
-        byebug
         expect(page).not_to have_content 'test1_team'
       end
     end
