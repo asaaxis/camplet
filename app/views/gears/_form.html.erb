@@ -1,11 +1,11 @@
 <%= form_with(model: gear) do |form| %>
   <% if gear.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(gear.errors.count, "件のエラー") %> のためキャンプギアは登録出来ませんでした:</h2>
+      <h2><%= pluralize(gear.errors.count, "件のエラー") %> のためキャンプギアは登録出来ませんでした</h2>
 
       <ul>
         <% gear.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <p><%= error.full_message %></p>
         <% end %>
       </ul>
     </div>

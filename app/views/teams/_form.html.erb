@@ -1,11 +1,11 @@
 <%= form_with(model: team) do |form| %>
   <% if team.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(team.errors.count, "件のエラー") %> のためチームは登録出来ませんでした:</h2>
+      <h2><%= pluralize(team.errors.count, "件のエラー") %> のためチームは登録出来ませんでした</h2>
 
       <ul>
         <% team.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <p><%= error.full_message %></p>
         <% end %>
       </ul>
     </div>

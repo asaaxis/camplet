@@ -2,15 +2,15 @@
 
 
 // フッターの設定
-// .container {
-//   position: relative;
-//   box-sizing: border-box;
-//   min-height: 100vh;
-// }
-// footer {
-//   position: absolute;
-//   bottom: 0;
-// }
+.container {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+}
 // 文字のフォント調整
 p {
   font-family: 'Kaisei Decol', serif;
