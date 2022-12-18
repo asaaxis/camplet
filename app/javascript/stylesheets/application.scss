@@ -1,5 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 // フッターの設定
 .container {
@@ -24,12 +25,63 @@ h5,
 h6 {
   font-family: 'Kiwi Maru', serif;
 }
-// ギアのデザイン
+// ギアのカードデザイン
 .card {
   margin: 0 auto 60px;
 }
 .card-body p {
   text-align: left;
+}
+
+// チェックボックスのスタイル
+.boxes {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 150px;
+  margin-right: 150px;
+  background: #e3e9fd;
+}
+
+/*Checkboxes styles*/
+input[type="checkbox"] { display: none; }
+
+input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  color: rgb(7, 0, 0);
+  cursor: pointer;
+}
+
+input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #0835e7;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 // トップページの背景画像
 // .top_background {
@@ -56,27 +108,4 @@ h6 {
 //   height: relative;
 //   background-color:rgba(10, 10, 10, 0.8);
 //   padding: 30px;
-// }
-
-// .index_title1 {
-// font-size: 50px;
-// font-weight: bold;
-// line-height: 1.5;
-// }
-
-// .index_title2 {
-// font-size: 30px;
-// font-weight: bold;
-// line-height: 1.5;
-// }
-
-// .index_title3 {
-//   font-size: 20px;
-//   font-weight: bold;
-//   line-height: 0.5;
-//   }
-
-// .index_text {
-// font-size: 20px;
-// line-height: 1.5;
 // }
