@@ -83,6 +83,16 @@ input[type="checkbox"]:checked + label:before {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+// トップに戻るボタン
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+.arrow{
+  width:      70px;
+  height:     70px;
+}
 // トップページの背景画像
 // .top_background {
 //   background-image: image-url("top.png");
