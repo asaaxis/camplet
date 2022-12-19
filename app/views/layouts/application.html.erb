@@ -2,15 +2,20 @@
 <html>
   <head>
     <title>Camplet</title>
+    <!-- ファビコンの設定 -->
+    <%= favicon_link_tag('favicon.ico') %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- googlefonts設定 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
+    <!-- aosの設定 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
 
   <body>
@@ -51,8 +56,21 @@
       <%= yield %>
     </div>
     
-      <nav class="navbar fixed-bottom navbar-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="/">©2022 Camplet</a>
-      </nav>
+    <nav class="navbar absolute-bottom navbar-light" style="background-color: #e3f2fd;">
+      <a class="navbar-brand" href="/">©2022 Camplet</a>
+    </nav>
+
+    <!-- aosの設定 -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        offset: 50,
+        delay: 600,
+        duration: 1000,
+        easing: 'ease-in-out-quad',
+        anchorPlacement: 'top-center',
+        once: true,
+      });
+    </script>
   </body>
 </html>
