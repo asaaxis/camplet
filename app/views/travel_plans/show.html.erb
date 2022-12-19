@@ -25,17 +25,16 @@
     <p>
       <strong>持ち物リスト:</strong>
       <% @travel_plan.labels.each do |label| %>
-        <%= label.name %>
+        <%= label.name %> |
       <% end %>
     </p>
 
     <p>
       <strong>ユーザー、持ち物リスト:</strong>
-      <td><% @travel_plan.gears.each do |gear| %>
-        <%= gear.name %>
-      <% end %></td>
+      <% @travel_plan.gears.each do |gear| %>
+        <%= gear.name %> |
+      <% end %>
     </p>
-
 
     <h3>持ち物を登録する</h3>
   </div>
@@ -44,14 +43,14 @@
 <%= form_with(model: [@team, @travel_plan]) do |form| %>
   <div class="boxes">
     <div class="field">
-      <h5><%= form.label :持ち物 %></h5>
+      <h4><%= form.label :持ち物 %></h4>
       <p><%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %></p>
     </div>
   </div>
   
   <div class="mt-3 boxes">
     <div class="field">
-      <h5><%= form.label :ユーザーのキャンプギア %></h5>
+      <h4><%= form.label :ユーザーのキャンプギア %></h4>
       <p><%= form.collection_check_boxes(:gear_ids, Gear.where(user_id: current_user.id), :id, :name) %></p>
     </div>
     <div class="mt-3 actions">
