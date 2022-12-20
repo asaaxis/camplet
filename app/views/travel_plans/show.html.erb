@@ -59,30 +59,27 @@
   </div>
 <% end %>
 
-<br>
-
-<div class="texts-wrapper">
+<div class="mt-5 texts-wrapper">
   <div class="contents-title text-center">
-  <button type="button" class="btn btn-outline-success" style="background-color: #e3f2fd;">
-    <%= link_to '編集', edit_travel_plan_path(id:@travel_plan.id, team_id:@travel_plan.team_id) %> 
-  </button>
-  <button type="button" class="btn btn-outline-danger" style="background-color: #e3f2fd;">
-    <%= link_to '削除', travel_plan_path(@travel_plan), method: :delete, data: { confirm: 'Are you sure?' } %>
-  </button>
-  <button type="button" class="btn btn-outline-info" style="background-color: #e3f2fd;">
-    <%= link_to '旅行一覧', team_travel_plans_path(@travel_plan.team_id) %>
-  </button>
+    <button type="button" class="btn btn-outline-success" style="background-color: #e3f2fd;">
+      <%= link_to '編集', edit_travel_plan_path(id:@travel_plan.id, team_id:@travel_plan.team_id) %> 
+    </button>
+    <button type="button" class="btn btn-outline-danger" style="background-color: #e3f2fd;">
+      <%= link_to '削除', travel_plan_path(@travel_plan), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </button>
+    <button type="button" class="btn btn-outline-info" style="background-color: #e3f2fd;">
+      <%= link_to '旅行一覧', team_travel_plans_path(@travel_plan.team_id) %>
+    </button>
   </div>
 </div>
 
-<div class = "mt-5 mb-5 container">
-<p>チャット一覧</p>
+<div class = "mt-5 container">
+  <p>チャット一覧</p>
 
   <div id="chats_area">
     <%= render partial: 'chats/index', locals: { travel_plan: @travel_plan, chats: @chats } %>
   </div>
 
   <%= render partial: 'chats/form', locals: { travel_plan: @travel_plan, chat: @chat } %>
-<br>
 </div>
 
