@@ -5,9 +5,11 @@
         <div class="chat-content" id ="this_chat_<%= chat.id %>"></div>
         <p>投稿者：<%= chat.user.name %>さん</p>
         <p>内容：<%= chat.content %></p>
-        <p><%= link_to "コメント編集", edit_chat_path(chat), remote: true %></p>
-        <p><%= link_to "コメント削除", chat_path(chat), method: :delete, remote: true,
-                                      data: { confirm: "本当に削除しますか?"} %></p>
+        <p>
+          <%= link_to edit_chat_path(chat), remote: true do %><i class="bi bi-pencil-square"></i><% end %>
+          <%= link_to chat_path(chat), method: :delete, remote: true,
+                                      data: { confirm: "本当に削除しますか?"} do %><i class="bi bi-trash"></i><% end %>
+        </p>
       </li>
     <% end %>
   <% end %>
