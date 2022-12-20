@@ -1,5 +1,5 @@
 class LabelsController < ApplicationController
-  before_action :set_label, only: [:show, :edit, :update, :destroy]
+  before_action :set_label, only: %i[show edit update destroy]
 
   def index
     @labels = Label.all
@@ -17,7 +17,6 @@ class LabelsController < ApplicationController
 
   def create
     @label = Label.new(label_params)
-
     if @label.save
       redirect_to @label, notice: 'ラベルを作成しました.'
     else
@@ -39,11 +38,12 @@ class LabelsController < ApplicationController
   end
 
   private
-    def set_label
-      @label = Label.find(params[:id])
-    end
 
-    def label_params
-      params.require(:label).permit(:name)
-    end
+  def set_label
+    @label = Label.find(params[:id])
+  end
+
+  def label_params
+    params.require(:label).permit(:name)
+  end
 end

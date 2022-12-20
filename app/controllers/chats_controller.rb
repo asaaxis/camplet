@@ -6,7 +6,6 @@ class ChatsController < ApplicationController
     @chat.user_id = current_user.id
     respond_to do |format|
       if @chat.save
-        
         flash.now[:notice] = '投稿できました！'
         format.js { render :index } 
       else
