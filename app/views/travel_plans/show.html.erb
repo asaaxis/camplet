@@ -54,7 +54,7 @@
       <p><%= form.collection_check_boxes(:gear_ids, Gear.where(user_id: current_user.id), :id, :name) %></p>
     </div>
     <div class="mt-3 actions">
-      <%= form.submit %>
+      <%= form.submit class: "btn btn-outline-info", style: "background-color: #e3f2fd;" %>
     </div>
   </div>
 <% end %>
