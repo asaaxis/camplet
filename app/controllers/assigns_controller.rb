@@ -27,7 +27,7 @@ class AssignsController < ApplicationController
     email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)
   end
 
-  def find_team(team_id)
+  def find_team(*)
     Team.find(params[:team_id])
   end
 
