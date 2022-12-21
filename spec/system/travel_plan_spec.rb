@@ -8,12 +8,12 @@ RSpec.describe '旅行プラン管理機能', type: :system do
       visit user_session_path
       fill_in 'user[email]', with: 'test1@example.com'
       fill_in 'user[password]', with: 'test11'
-      click_on'commit'
+      click_on 'commit'
     end
     context '旅行プランを作成した場合' do
       it '作成した旅行プランが表示される' do
         visit new_team_travel_plan_path(team.id)
-        fill_in '行き先',with: 'Tokyo'
+        fill_in '行き先', with: 'Tokyo'
         select '2023', from: 'travel_plan_start_schedule_at_1i'
         select '8月', from: 'travel_plan_start_schedule_at_2i'
         select '1', from: 'travel_plan_start_schedule_at_3i'
@@ -37,7 +37,7 @@ RSpec.describe '旅行プラン管理機能', type: :system do
         click_on '旅行一覧'
         click_button '詳細'
         click_button '編集'
-        fill_in '行き先',with: 'OSAKA'
+        fill_in '行き先', with: 'OSAKA'
         select '2023', from: 'travel_plan_start_schedule_at_1i'
         select '9月', from: 'travel_plan_start_schedule_at_2i'
         select '1', from: 'travel_plan_start_schedule_at_3i'

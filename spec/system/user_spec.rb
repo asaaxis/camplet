@@ -1,6 +1,5 @@
 require 'rails_helper'
 RSpec.describe 'ユーザーモデル機能', type: :system do
-
   describe 'ユーザー登録テスト' do
     context 'ユーザー新規登録した場合' do
       it 'ユーザーマイページに遷移する' do

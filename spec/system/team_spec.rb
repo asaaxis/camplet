@@ -1,17 +1,17 @@
 require 'rails_helper'
 RSpec.describe 'チーム管理機能', type: :system do
-  let!(:team_member){ FactoryBot.create(:second_user) }
-  let!(:owner_user){ FactoryBot.create(:user) }
-  let!(:team){ FactoryBot.create(:team, owner: owner_user) }
-  let!(:assign){ FactoryBot.create(:assign, user: owner_user, team: team) }
-  let!(:assign){ FactoryBot.create(:assign, user: team_member, team: team) }
+  let!(:team_member) { FactoryBot.create(:second_user) }
+  let!(:owner_user) { FactoryBot.create(:user) }
+  let!(:team) { FactoryBot.create(:team, owner: owner_user) }
+  let!(:assign) { FactoryBot.create(:assign, user: owner_user, team: team) }
+  let!(:assign) { FactoryBot.create(:assign, user: team_member, team: team) }
   
   describe '新規作成機能' do
     before do
       visit user_session_path
       fill_in 'user[email]', with: 'test1@example.com'
       fill_in 'user[password]', with: 'test11'
-      click_on'commit'
+      click_on 'commit'
     end
     context 'チームを作成した場合' do
       it '作成したチームが表示される' do
@@ -35,14 +35,13 @@ RSpec.describe 'チーム管理機能', type: :system do
         expect(page).not_to have_content 'test1_team'
       end
     end
-  end
-  
+  end  
   describe 'チーム招待機能' do
     before do
       visit user_session_path
       fill_in 'user[email]', with: 'test1@example.com'
       fill_in 'user[password]', with: 'test11'
-      click_on'commit'
+      click_on 'commit'
     end
     context 'ユーザーを招待した場合' do
       it 'メンバーに表示される' do
@@ -59,7 +58,7 @@ RSpec.describe 'チーム管理機能', type: :system do
       visit user_session_path
       fill_in 'user[email]', with: 'test2@example.com'
       fill_in 'user[password]', with: 'test22'
-      click_on'commit'
+      click_on 'commit'
     end
     context 'チームを退出した場合' do
       it 'マイページに遷移する' do

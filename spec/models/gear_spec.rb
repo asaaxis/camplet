@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'キャンプギアモデル機能', type: :model do
-  let!(:user){ FactoryBot.create(:user) }
+  let!(:user) { FactoryBot.create(:user) }
   describe 'バリデーションのテスト' do
     context '名前、数量を1以上入力した場合' do
       it 'バリデーションが通る' do

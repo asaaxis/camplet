@@ -7,14 +7,14 @@ RSpec.describe 'キャンプギア管理機能', type: :system do
       visit user_session_path
       fill_in 'user[email]', with: 'test1@example.com'
       fill_in 'user[password]', with: 'test11'
-      click_on'commit'
+      click_on 'commit'
     end
     context 'キャンプギアを登録した場合' do
       it '作成したキャンプギアが表示される' do
         visit new_gear_path
-        fill_in '名前',with: 'テント'
-        fill_in '詳細',with: '4人入れます'
-        fill_in '数量' ,with: '1'
+        fill_in '名前', with: 'テント'
+        fill_in '詳細', with: '4人入れます'
+        fill_in '数量' , with: '1'
         click_on 'commit'
         expect(page).to have_content 'テント'
       end
@@ -22,9 +22,9 @@ RSpec.describe 'キャンプギア管理機能', type: :system do
     context '登録したキャンプギアを' do
       it '編集ができること' do
         visit edit_gear_path(gear.id)
-        fill_in '名前',with: 'てんと'
-        fill_in '詳細',with: '2人入れます'
-        fill_in '数量' ,with: '2'
+        fill_in '名前', with: 'てんと'
+        fill_in '詳細', with: '2人入れます'
+        fill_in '数量' , with: '2'
         click_button 'commit'
         expect(page).to have_content 'てんと'
       end
