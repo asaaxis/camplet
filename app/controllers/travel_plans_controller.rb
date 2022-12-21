@@ -1,5 +1,5 @@
 class TravelPlansController < ApplicationController
-  before_action :set_travel_plan, only: [:show, :edit, :update, :destroy]
+  before_action :set_travel_plan, only: %i[show edit update destroy]
 
   def index
     @travel_plans = Team.find(params[:team_id]).travel_plans
@@ -12,14 +12,12 @@ class TravelPlansController < ApplicationController
 
   def new
     @travel_plan = TravelPlan.new
-    # byebug
   end
 
   def edit
   end
 
   def create
-    # binding.pry
     @travel_plan = TravelPlan.new(travel_plan_params)
     if @travel_plan.save
       redirect_to team_travel_plans_path, notice: '旅行プランを作成しました.'

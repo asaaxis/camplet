@@ -2,7 +2,6 @@
   <% if gear.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(gear.errors.count, "件のエラー") %> のためキャンプギアは登録出来ませんでした</h2>
-
       <ul>
         <% gear.errors.each do |error| %>
           <p><%= error.full_message %></p>
@@ -32,6 +31,6 @@
   </div>
 
   <div class="mt-2 actions">
-    <%= form.submit class: "btn btn-outline-info", style: "background-color: #e3f2fd;"%>
+    <%= form.submit class: "btn btn-outline-info", style: "background-color: #e3f2fd;" %>
   </div>
 <% end %>

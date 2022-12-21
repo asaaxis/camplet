@@ -1,6 +1,6 @@
 class GearsController < ApplicationController
-  before_action :set_gear, only: [:show, :edit, :update, :destroy]
-  before_action :set_q, only: [:index, :search]
+  before_action :set_gear, only: %i[show edit update destroy]
+  before_action :set_q, only: %i[index search]
 
   def index
     @gears = current_user.gears
@@ -18,7 +18,6 @@ class GearsController < ApplicationController
 
   def create
     @gear = current_user.gears.build(gear_params)
-
     if @gear.save
       redirect_to @gear, notice: 'ギアを登録しました.'
     else

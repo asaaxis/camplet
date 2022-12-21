@@ -1,25 +1,24 @@
 class ChatsController < ApplicationController
   before_action :set_travel_plan, only: [:create]
 
-  def create
-    @chat = @travel_plan.chats.build(chat_params)
-    @chat.user_id = current_user.id
-    respond_to do |format|
-      if @chat.save
-        
-        flash.now[:notice] = '投稿できました！'
-        format.js { render :index } 
-      else
-        format.html { redirect_to travel_plan_path(@travel_plan), notice: '投稿できませんでした...' }
-      end
-    end
-  end
-
   def edit
     @chat = Chat.find(params[:id])
     respond_to do |format|
       flash.now[:notice] = 'コメントの編集中'
       format.js { render :edit }
+    end
+  end
+  
+  def create
+    @chat = @travel_plan.chats.build(chat_params)
+    @chat.user_id = current_user.id
+    respond_to do |format|
+      if @chat.save
+        flash.now[:notice] = '投稿できました！'
+        format.js { render :index }
+      else
+        format.html { redirect_to travel_plan_path(@travel_plan), notice: '投稿できませんでした...' }
+      end
     end
   end
 

@@ -1,6 +1,5 @@
 require 'rails_helper'
 RSpec.describe 'ユーザーモデル機能', type: :system do
-
   describe 'ユーザー登録テスト' do
     context 'ユーザー新規登録した場合' do
       it 'ユーザーマイページに遷移する' do
@@ -30,7 +29,7 @@ RSpec.describe 'ユーザーモデル機能', type: :system do
         fill_in 'user[email]', with: 'test1@example.com'
         fill_in 'user[password]', with: 'test11'
         click_button 'commit'
-        click_link "ログアウト"
+        click_link 'ログアウト'
         expect(page).to have_content 'ログアウトしました'
       end
     end
@@ -42,4 +41,3 @@ RSpec.describe 'ユーザーモデル機能', type: :system do
     end
   end
 end
-# bundle exec rspec spec/system/user_spec.rb

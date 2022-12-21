@@ -1,5 +1,4 @@
 <%= form_with(model: travel_plan, local: true, url: choose_new_or_edit) do |form| %>
-
   <% if travel_plan.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(travel_plan.errors.count, "件のエラー") %> のため旅行プランは登録出来ませんでした</h2>
@@ -29,6 +28,6 @@
   <%= form.hidden_field :team_id, :value => params[:team_id] %>
 
   <div class="mt-2 actions">
-    <%= form.submit class: "btn btn-outline-info", style: "background-color: #e3f2fd;"%>
+    <%= form.submit class: "btn btn-outline-info", style: "background-color: #e3f2fd;" %>
   </div>
 <% end %>
