@@ -26,7 +26,6 @@ RSpec.describe '旅行プラン管理機能', type: :system do
         select '00', from: 'travel_plan_end_schedule_at_4i'
         select '00', from: 'travel_plan_end_schedule_at_5i'
         click_on 'commit'
-        # byebug
         expect(page).to have_content 'Tokyo'
       end
     end
@@ -50,7 +49,6 @@ RSpec.describe '旅行プラン管理機能', type: :system do
         select '00', from: 'travel_plan_end_schedule_at_4i'
         select '00', from: 'travel_plan_end_schedule_at_5i'
         click_button 'commit'
-        # byebug
         expect(page).to have_content 'OSAKA'
       end
       it '削除ができること' do
@@ -62,4 +60,3 @@ RSpec.describe '旅行プラン管理機能', type: :system do
     end
   end
 end
-# bundle exec rspec spec/system/travel_plan_spec.rb

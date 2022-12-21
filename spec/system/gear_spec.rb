@@ -14,7 +14,7 @@ RSpec.describe 'キャンプギア管理機能', type: :system do
         visit new_gear_path
         fill_in '名前', with: 'テント'
         fill_in '詳細', with: '4人入れます'
-        fill_in '数量' , with: '1'
+        fill_in '数量', with: '1'
         click_on 'commit'
         expect(page).to have_content 'テント'
       end
@@ -24,7 +24,7 @@ RSpec.describe 'キャンプギア管理機能', type: :system do
         visit edit_gear_path(gear.id)
         fill_in '名前', with: 'てんと'
         fill_in '詳細', with: '2人入れます'
-        fill_in '数量' , with: '2'
+        fill_in '数量', with: '2'
         click_button 'commit'
         expect(page).to have_content 'てんと'
       end
@@ -37,4 +37,3 @@ RSpec.describe 'キャンプギア管理機能', type: :system do
     end
   end
 end
-# bundle exec rspec spec/system/gear_spec.rb

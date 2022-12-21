@@ -16,4 +16,3 @@ RSpec.describe '旅行プランモデル機能', type: :model do
     end
   end
 end
-# bundle exec rspec spec/models/travel_plan_spec.rb

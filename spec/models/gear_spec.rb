@@ -23,4 +23,3 @@ RSpec.describe 'キャンプギアモデル機能', type: :model do
     end
   end
 end
-# bundle exec rspec spec/models/gear_spec.rb

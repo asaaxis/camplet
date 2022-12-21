@@ -22,4 +22,3 @@ RSpec.describe 'チームモデル機能', type: :model do
     end
   end
 end
-# bundle exec rspec spec/models/team_spec.rb

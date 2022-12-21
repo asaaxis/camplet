@@ -18,4 +18,3 @@ RSpec.describe 'チャットモデル機能', type: :model do
     end
   end
 end
-# bundle exec rspec spec/models/travel_plan_spec.rb

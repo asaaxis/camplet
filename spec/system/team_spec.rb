@@ -4,8 +4,7 @@ RSpec.describe 'チーム管理機能', type: :system do
   let!(:owner_user) { FactoryBot.create(:user) }
   let!(:team) { FactoryBot.create(:team, owner: owner_user) }
   let!(:assign) { FactoryBot.create(:assign, user: owner_user, team: team) }
-  let!(:assign) { FactoryBot.create(:assign, user: team_member, team: team) }
-  
+  let!(:assign) { FactoryBot.create(:assign, user: team_member, team: team) }  
   describe '新規作成機能' do
     before do
       visit user_session_path
@@ -35,7 +34,7 @@ RSpec.describe 'チーム管理機能', type: :system do
         expect(page).not_to have_content 'test1_team'
       end
     end
-  end  
+  end
   describe 'チーム招待機能' do
     before do
       visit user_session_path
@@ -70,4 +69,3 @@ RSpec.describe 'チーム管理機能', type: :system do
     end
   end
 end
-# bundle exec rspec spec/system/team_spec.rb

@@ -41,4 +41,3 @@ RSpec.describe 'ユーザーモデル機能', type: :system do
     end
   end
 end
-# bundle exec rspec spec/system/user_spec.rb
