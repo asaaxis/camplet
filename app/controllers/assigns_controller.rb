@@ -1,8 +1,7 @@
 class AssignsController < ApplicationController
-
   def create
     team = find_team(params[:team_id])
-    user = email_reliable?(assign_params)? User.find_by(email: assign_params) : nil
+    user = email_reliable?(assign_params) ? User.find_by(email: assign_params) : nil
     if user
       team.invite_member(user)
       redirect_to team_url(team), notice: "招待に成功しました."

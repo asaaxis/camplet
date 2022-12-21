@@ -15,7 +15,7 @@ class ChatsController < ApplicationController
     respond_to do |format|
       if @chat.save
         flash.now[:notice] = '投稿できました！'
-        format.js { render :index } 
+        format.js { render :index }
       else
         format.html { redirect_to travel_plan_path(@travel_plan), notice: '投稿できませんでした...' }
       end
