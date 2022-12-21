@@ -10,7 +10,7 @@ RSpec.describe '旅行プランモデル機能', type: :model do
     end
     context '行き先が空の場合' do
       it 'バリデーションにひっかかる' do
-        travel_plan = FactoryBot.build(:travel_plan, name: "")
+        travel_plan = FactoryBot.build(:travel_plan, name: '')
         expect(travel_plan).to be_invalid
       end
     end

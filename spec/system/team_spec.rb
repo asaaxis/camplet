@@ -4,7 +4,7 @@ RSpec.describe 'チーム管理機能', type: :system do
   let!(:owner_user) { FactoryBot.create(:user) }
   let!(:team) { FactoryBot.create(:team, owner: owner_user) }
   let!(:assign) { FactoryBot.create(:assign, user: owner_user, team: team) }
-  let!(:assign) { FactoryBot.create(:assign, user: team_member, team: team) }  
+  let!(:assign) { FactoryBot.create(:assign, user: team_member, team: team) }
   describe '新規作成機能' do
     before do
       visit user_session_path
@@ -29,7 +29,7 @@ RSpec.describe 'チーム管理機能', type: :system do
       end
       it '削除ができること' do
         visit team_path(team)
-        click_button "チーム削除"
+        click_button 'チーム削除'
         page.driver.browser.switch_to.alert.accept
         expect(page).not_to have_content 'test1_team'
       end
@@ -44,7 +44,7 @@ RSpec.describe 'チーム管理機能', type: :system do
     end
     context 'ユーザーを招待した場合' do
       it 'メンバーに表示される' do
-        new_member = FactoryBot.create(:user, name: "new user", email: "new_member@example.com", id: 3)
+        new_member = FactoryBot.create(:user, name: 'new user', email: 'new_member@example.com', id: 3)
         visit team_path(team)
         fill_in 'post[email]', with: 'new_member@example.com'
         click_on '招待'

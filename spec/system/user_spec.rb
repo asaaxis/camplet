@@ -29,7 +29,7 @@ RSpec.describe 'ユーザーモデル機能', type: :system do
         fill_in 'user[email]', with: 'test1@example.com'
         fill_in 'user[password]', with: 'test11'
         click_button 'commit'
-        click_link "ログアウト"
+        click_link 'ログアウト'
         expect(page).to have_content 'ログアウトしました'
       end
     end

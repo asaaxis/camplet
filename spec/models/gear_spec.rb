@@ -11,13 +11,13 @@ RSpec.describe 'キャンプギアモデル機能', type: :model do
     end
     context '名前が空の場合' do
       it 'バリデーションにひっかかる' do
-        gear = FactoryBot.build(:gear, name: "", user: user)
+        gear = FactoryBot.build(:gear, name: '', user: user)
         expect(gear).to be_invalid
       end
     end
     context '数量が0以下の場合' do
       it 'バリデーションにひっかかる' do
-        gear = FactoryBot.build(:gear, quantity: "0", user: user)
+        gear = FactoryBot.build(:gear, quantity: '0', user: user)
         expect(gear).to be_invalid
       end
     end

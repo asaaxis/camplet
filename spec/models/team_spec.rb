@@ -10,13 +10,13 @@ RSpec.describe 'チームモデル機能', type: :model do
     end
     context 'チーム名が空の場合' do
       it 'バリデーションにひっかかる' do
-        team = FactoryBot.build(:team, name: "")
+        team = FactoryBot.build(:team, name: '')
         expect(team).to be_invalid
       end
     end
     context 'チーム名が20文字以上の場合' do
       it 'バリデーションにひっかかる' do
-        team = FactoryBot.build(:team, name: "#{"わいわいわい" * 5}")
+        team = FactoryBot.build(:team, name: "#{'わいわいわい' * 5}")
         expect(team).to be_invalid
       end
     end

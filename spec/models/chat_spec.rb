@@ -12,7 +12,7 @@ RSpec.describe 'チャットモデル機能', type: :model do
     end
     context 'コメントが空の場合' do
       it 'バリデーションにひっかかる' do
-        chat = FactoryBot.build(:chat, content: "", user: user, travel_plan: travel_plan)
+        chat = FactoryBot.build(:chat, content: '', user: user, travel_plan: travel_plan)
         expect(chat).to be_invalid
       end
     end
