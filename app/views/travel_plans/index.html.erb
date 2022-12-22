@@ -18,8 +18,8 @@
           <tr>
             <td><%= travel_plan.team.name %></td>
             <td><%= travel_plan.name %></td>
-            <td><%= travel_plan.start_schedule_at %></td>
-            <td><%= travel_plan.end_schedule_at %></td>
+            <td><%= travel_plan.start_schedule_at.strftime("%Y-%m-%d %H:%M") %></td>
+            <td><%= travel_plan.end_schedule_at.strftime("%Y-%m-%d %H:%M") %></td>
             <td>
               <button type="button" class="btn btn-outline-info" style="background-color: #e3f2fd;">
                 <%= link_to '詳細', travel_plan_path(travel_plan) %>
