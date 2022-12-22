@@ -17,7 +17,9 @@
             <div class="col-12 col-md-6 col-lg-4">
               <div class="card" style="width: 20rem; background-color: #e3e9fd">
                 <% if gear.image.present? %>
-                  <%= image_tag gear.image.url, class: "card-img-top" %>
+                  <%= image_tag gear.image.url, size: '300x300', class: "card-img-top" %>
+                <% else %>
+                  <%= image_tag 'camplet.png', size: '300x300' %>
                 <% end %>
                 <div class="card-body">
                   <h5 class="card-title">名前:<%= gear.name %></h5>

@@ -14,12 +14,12 @@
 
     <p>
       <strong>宿泊開始日:</strong>
-      <%= @travel_plan.start_schedule_at %>
+      <%= @travel_plan.start_schedule_at.strftime("%Y-%m-%d %H:%M") %>
     </p>
 
     <p>
       <strong>宿泊終了日:</strong>
-      <%= @travel_plan.end_schedule_at %>
+      <%= @travel_plan.end_schedule_at.strftime("%Y-%m-%d %H:%M") %>
     </p>
 
     <p>
